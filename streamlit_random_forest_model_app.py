@@ -16,14 +16,14 @@ def make_prediction(user_input):
 
 # Streamlit UI
 def main():
-    st.title('Random Forest model Deployment with Streamlit')
+    st.title('Employee Attrition Risk')
 
     # Sidebar description
-    st.sidebar.header('Description')
-    st.sidebar.write(
-        "This is a Streamlit app for predicting employee attrition using an Random Forest model. "
-        "____, and click 'Predict' to get the model's prediction."
-    )
+    st.sidebar.header('Employee Attrition using Random Forest Model')
+    st.sidebar.write("This is a Streamlit app for predicting employee attrition using a Random Forest model. ")
+    st.sidebar.write("Supply the information and click 'Predict' to get the model's prediction.")
+        
+    st.sidebar.write("Accuracy: 86%")
 
     # User input
     DistanceFromHome = st.number_input('Distance from home')
