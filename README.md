@@ -12,6 +12,10 @@ Objectives:
 relevant factors contributing to employee turnover.
 2. Additionally, we would also want to predict job satisfaction and what
 are the relevant factors contributing to low and high job satisfaction.
+## Instructions
+Please navigate to `employee_attrition_new.ipynb` to see the code for our logistic regression. Navigate to `mlp_xgboost_ML.ipynb` to see the code for our XGBOOST MLP. Navigate to `random_forrest.ipynb` to see the code for our random forest model. The code for our Streamlit app can be found in `streamlit_random_forest_model_app.py`. In addition, to see the Tableau visualisations we generated for the project, please navigate to `Tableau Links.docx`. 
+
+The original dataset can be found within the `Resources` folder. In the `Output` folder, you'll find the `demographic` and `job` tables. 
 
 ## Installations
 The following dependancies have been installed for this project:
@@ -71,32 +75,32 @@ Our dataset contains the following columns:
 33. `YearsWithCurrManager`
 34. `StandardHours`
 35. `EmployeeCount`
-![Alt text](<Screenshot 2024-01-04 at 9.14.56 pm.png>)
+![Alt text](<Screenshot 2024-01-10 at 12.34.19 pm.png>)
 ### Cleaning and generate summary stats
 
 ## Data loading
 Demographic table
-![Alt text](<Screenshot 2024-01-04 at 9.36.41 pm.png>)
+![Alt text](<Screenshot 2024-01-10 at 12.34.48 pm.png>)
 
 Job table
-![Alt text](<Screenshot 2024-01-04 at 9.37.49 pm.png>)
+![Alt text](<Screenshot 2024-01-10 at 12.35.07 pm.png>)
 
 
 ## Data modelling
 ### Predicting employee turnover using logistic regression
 To delve deeper into our dataset and identify potential predictors of employee attrition, we employed a logistic regression model. This involved calculating odds ratios and p-values for all variables. While the overall model demonstrates statistical significance with a p-value of 3.363e-46, the Pseudo R-squared reveals a relatively low explanatory power, capturing only around 35% of the total variance in employee attrition. Refer to the model summary screenshot below for further details.
-![Alt text](<Screenshot 2024-01-08 at 7.16.09 pm.png>)
+![Alt text](<Screenshot 2024-01-10 at 12.35.39 pm.png>)
 
 ### Predicting employee turnover using Multilayer Perceptron (MPL), XGBBoost and Random Forest
 We decided that the initial logistic regression model served as a baseline model on which to modify and improve on. To improve the predictive power of our model as well as increasing the accuracy score, additional machine learning models were built: 1) a Multilayer Perceptron model, and 2) a Random Forest model. 
 
 Our XGBoost MLP model achieved an overall high accuracy score of 84%. 
-![Alt text](<Screenshot 2024-01-08 at 7.32.36 pm.png>)
+![Alt text](<Screenshot 2024-01-10 at 12.36.04 pm.png>)
 
 To assess the association between Attrition and other categorical variables in the dataset, the chi-square test of independence was utilized. The null hypothesis posits that the variables are independent, indicating no discernible connection between Attrition and the variable under consideration. Conversely, the alternative hypothesis suggests the presence of a relationship.
 
 The chi-square test was applied to each categorical column in the dataset. If the p-value resulting from the test was greater than or equal to 0.05, it implied that the variables were statistically independent. In such cases, these variables were considered for removal during the encoding process. The rationale behind this approach is that removing independent variables may contribute to enhancing the accuracy of the random forest algorithm. By refining the feature set, the algorithm can focus on more relevant predictors, potentially leading to improved predictive performance.
-![Alt text](<Screenshot 2024-01-08 at 7.30.14 pm.png>) Random Forrest
+![Alt text](<Screenshot 2024-01-10 at 12.36.39 pm.png>)
 
 Similarly, our Random Forest model achieved an overall impressive score of 86%. Based on this accuracy score, we've decided to use this model to build the Streamlit app. 
 
@@ -104,12 +108,10 @@ Similarly, our Random Forest model achieved an overall impressive score of 86%. 
 To delpoy our Random Forest model, we utilised Streamlit. A screenshot of our Streamlit app is provided below. Please ensure you have the Streamlit app installed on your local machine by following the instructions below:
 1) open your GitBash (on Windows) or Terminal (on Macs) and run this command line to install Streamlit: `pip install streamlit`.
 2) navigate to App Directory: use the cd command to navigate to the directory where your Streamlit app script is located. E.g.,
-![Alt text](<Screenshot 2024-01-08 at 8.27.47 pm.png>)
 3) run Streamlit App: once you are in the correct directory, run the following command to launch your Streamlit app using the following command:
-![Alt text](<Screenshot 2024-01-08 at 8.28.28 pm.png>)
-Replace app.py with the name of your Streamlit app script if it has a different name.
+`streamlit run your_app_file.py`
+Replace your_app_file with the name of your Streamlit app script if it has a different name.
 4) Streamlit will prompt you answer some questions, please tab the key `return` (on Macs) or `enter` (on Windows) if you don't want to provide answers.
 5) once you've done the previous steps, you should see the Streamlit app opening on a web browser, you can start interacting with the app.
 
-A screenshot of what our Streamlit app looks like is provided below.
-![Alt text](image.png)
+
